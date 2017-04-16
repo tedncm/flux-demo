@@ -19,11 +19,11 @@ for (let i = 1; i < 9; i++) {
 var cartItems = []; // Item in the cart
 
 const _removeItem = ( item ) => {
-    _cartItems.splice( _cartItems.findIndex( i => i === item), 1);
+    cartItems.splice( cartItems.findIndex( i => i === item), 1);
 };
 
 const _findCartItem = ( item ) => {
-    return _cartItems.find( _cartItems => cartItem.id === item.id );
+    return cartItems.find( cartItem => cartItem.id === item.id );
 };
 
 const _increaseItem = ( item ) => item.qty++; 
@@ -38,14 +38,14 @@ const _decreaseItem = ( item ) => {
 const _addItem = ( item ) => {
     const cartItem = _findCartItem( item );
     if( !cartItem ) {
-        _cartItems.push( Object.assign( { qty: 1 }, item ));
+        cartItems.push( Object.assign( { qty: 1 }, item ));
     } else {
         _increaseItem( cartItem );
     }
 };
 
 const _cartTotals = ( qty = 0, total = 0 ) => {
-    _cartItems.forEach( cartItem => {
+    cartItems.forEach( cartItem => {
         qty += cartItem.qty;
         total += cartItem.qty * cartItem.cost;
     });
@@ -66,7 +66,7 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     },
 
     getCart() {
-        return _cartItems;
+        return cartItems;
     },
 
     getCatalog() {
