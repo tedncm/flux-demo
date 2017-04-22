@@ -12,8 +12,10 @@ const Catalog =(props) => {
         return <CatalogItem key={ item.id } item={ item } />
     });
     return (
-        <div className="row">
-            { items }
+        <div className="container">
+            <div className="row">
+                { items }
+            </div>
         </div>
     )
 }

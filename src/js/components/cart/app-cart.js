@@ -22,7 +22,7 @@ const Cart = ( props ) => {
     });
 
     return (
-        <div>
+        <div className="container">
             <h1>Cart</h1>
             <table className="table table-hover">
                 <thead>
