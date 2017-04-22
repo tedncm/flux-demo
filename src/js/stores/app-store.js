@@ -2,13 +2,13 @@ import { dispatch, register } from '../dispatchers/app-dispatcher';
 import AppConstants from '../constants/app-constants';
 import { EventEmitter } from 'events'; // From Node
 
-const CHANGE_EVENT = 'change';
+const CHANGE_EVENT = 'change'
 
 var _catalog = [];
 
 for (let i = 1; i < 9; i++) {
     _catalog.push({
-        'id': 'Widget ' + i,
+        'id': i,
         'title': 'Widget # ' + i,
         'summary': 'A great widget',
         'description': 'Lorem ipsum dolor sit amet',
@@ -16,14 +16,14 @@ for (let i = 1; i < 9; i++) {
     });
 }
 
-var cartItems = []; // Item in the cart
+var _cartItems = []; // Item in the cart
 
 const _removeItem = ( item ) => {
-    cartItems.splice( cartItems.findIndex( i => i === item), 1);
+    _cartItems.splice( _cartItems.findIndex( i => i === item), 1);
 };
 
 const _findCartItem = ( item ) => {
-    return cartItems.find( cartItem => cartItem.id === item.id );
+    return _cartItems.find( cartItem => cartItem.id === item.id );
 };
 
 const _increaseItem = ( item ) => item.qty++; 
@@ -38,14 +38,14 @@ const _decreaseItem = ( item ) => {
 const _addItem = ( item ) => {
     const cartItem = _findCartItem( item );
     if( !cartItem ) {
-        cartItems.push( Object.assign( { qty: 1 }, item ));
+        _cartItems.push( Object.assign( { qty: 1 }, item ));
     } else {
         _increaseItem( cartItem );
     }
 };
 
 const _cartTotals = ( qty = 0, total = 0 ) => {
-    cartItems.forEach( cartItem => {
+    _cartItems.forEach( cartItem => {
         qty += cartItem.qty;
         total += cartItem.qty * cartItem.cost;
     });
@@ -66,13 +66,13 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     },
 
     getCart() {
-        return cartItems;
+        return _cartItems;
     },
 
-    getCatalog() {
+    getCatalog() { 
         return _catalog.map( item => {
-            return Object.assign({}, item, cartItems.find( cItem => cItem.id === item.id ));
-        })
+            return Object.assign({}, item, _cartItems.find( cItem => cItem.id === item.id ));
+        });
     },
 
     getCartTotals() {
@@ -80,6 +80,7 @@ const AppStore = Object.assign(EventEmitter.prototype, {
     },  
 
     dispatcherIndex: register( function( action ){
+
         switch(action.actionType) {
 
             case AppConstants.ADD_ITEM:

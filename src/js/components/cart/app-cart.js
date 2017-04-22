@@ -2,6 +2,7 @@ import React from 'react';
 import AppStore from '../../stores/app-store';
 import AppCartItem from './app-cart-item';
 import StoreWatchMixin from '../../mixins/StoreWatchMixin';
+import { Link } from 'react-router-dom';
 
 const cartItems = () => {
     return { items: AppStore.getCart() }
@@ -44,9 +45,9 @@ const Cart = ( props ) => {
                     </tr>
                 </tfoot>
             </table>
+            <Link to="/" className="btn btn-primary btn-sm">Continue Shopping</Link>
         </div>
     )
-    
 }
 
 export default StoreWatchMixin( Cart, cartItems) ;

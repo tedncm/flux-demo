@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/src/js/main.js"
+            "program": "${workspaceRoot}/src/js/stores/app-store.js"
         },
         {
             "type": "node",
