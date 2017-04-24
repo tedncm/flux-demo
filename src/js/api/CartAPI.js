@@ -6,7 +6,7 @@ const CartAPI = {
             this.catalog.push({
                 'id': i,
                 'title': 'Widget # ' + i,
-                'summary': 'A great widget',
+                'summary': 'Product Number ' + i,
                 'description': 'Lorem ipsum dolor sit amet',
                 'cost' : i    
             });

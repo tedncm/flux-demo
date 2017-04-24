@@ -21,7 +21,7 @@ export default (props) => {
                 </span>    
             </p> 
             <div className="btn-group">
-                <Link to={ `/item/${props.item.id}` } className="btn btn-default btn-sm">Learn more</Link>
+                <Link to={ `/item/${props.item.id}` } className="btn btn-default btn-sm">Details</Link>
                 <CartButton 
                     handler={
                         AppActions.addItem.bind(null, props.item)
