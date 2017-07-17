@@ -4,7 +4,7 @@
   "description": "Sample Demo ShopCart React",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server --host 0.0.0.0 --port 9000"
   },
   "author": "TN",
   "license": "ISC",

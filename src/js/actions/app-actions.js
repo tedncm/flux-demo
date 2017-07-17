@@ -12,12 +12,14 @@ export default {
         dispatch({
             actionType: AppConstants.REMOVE_ITEM, item
         })
-    },
+    }
+    ,
     increaseItem( item ) {
         dispatch({
             actionType: AppConstants.INCREASE_ITEM, item
         })
-    },
+    }
+    ,
     decreaseItem( item ) {
         dispatch({
             actionType: AppConstants.DECREASE_ITEM , item

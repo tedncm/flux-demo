@@ -1,13 +1,13 @@
 module.exports = {
     entry: "./src/js/main.js",
     output: {
-        path: "/Users/teddy/Developer/JS-DEV/cart-demo/dist",
+        path: "D:\\A03-NCM-Data\\JS_Practices\\flux-demo\\dist",
         filename: "bundle.js",
         publicPath: "/"
     },
     devServer: {
         inline: true,
-        contentBase: "/Users/teddy/Developer/JS-DEV/cart-demo/dist"
+        contentBase: "D:\\A03-NCM-Data\\JS_Practices\\flux-demo\\dist"
     }
     ,
     module: {
